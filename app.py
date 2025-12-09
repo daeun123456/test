@@ -16,15 +16,13 @@ def board(id):
     id = int(id)
     if id == 0:
         return send_file("stealcompany_view.html")
-    
     elif id == 1:
         return send_file("stealcompany_view_1.html")
-    
     elif id == 2:
         return send_file("stealcompany_view_2.html")
     else:
         return make_response("Not Found", 404)
-    
+
 @app.route("/login", methods=["GET"])
 def login():
     return send_file("stealcompany_login.html")
@@ -45,7 +43,6 @@ def login_proc():
 def admin():
     return send_file("stealcompany_dashboard.html")
 
-
-port = int(os.environ.get("PORT", 5555))
-
-app.run(host="0.0.0.0", port=port)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))   # Railway에서 지정한 포트 사용
+    app.run(host="0.0.0.0", port=port)
