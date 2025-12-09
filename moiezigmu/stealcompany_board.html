@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>STEAL COMPANY | 자유게시판</title>
+  <meta name="description" content="STEAL COMPANY 자유게시판" />
+  <meta name="theme-color" content="#0a0a0b" />
+
+  <style>
+    :root{
+      --bg:#0b0c0f; --paper:#101217; --ink:#e7e9ee; --muted:#aab0bb;
+      --brand:#6ee7ff; --brand-2:#7c7dff; --accent:#a2ff8f;
+      --card:#12151d; --stroke:#232734; --focus:#c9f31d;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px; --radius-sm:10px; --radius-lg:22px;
+      --gap:clamp(14px, 2vw, 22px);
+      --max:1200px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{--bg:#f7f8fb; --paper:#ffffff; --ink:#0b0c0f; --muted:#4a4f59; --card:#ffffff; --stroke:#e9ecf2; --shadow:0 10px 25px rgba(10,12,15,.08)}
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(110,231,255,.18), transparent 60%),
+                  radial-gradient(1000px 600px at -20% 10%, rgba(124,125,255,.18), transparent 60%), var(--bg);
+      color:var(--ink); line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:100%; max-width:var(--max); margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:color-mix(in oklab, var(--paper) 75%, transparent); border-bottom:1px solid var(--stroke)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; height:64px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); display:grid; place-items:center; box-shadow:var(--shadow)}
+    .menu{display:flex; gap:18px; align-items:center}
+    .menu a{opacity:.9; padding:8px 10px; border-radius:8px}
+    .menu a:hover{background:color-mix(in oklab, var(--brand) 22%, transparent); opacity:1}
+    .cta{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--stroke); border-radius:10px; background:linear-gradient(180deg, color-mix(in oklab, var(--paper) 88%, transparent), var(--paper)); box-shadow:var(--shadow)}
+    .cta strong{background:linear-gradient(135deg, var(--brand), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    section{padding:56px 0}
+    .card{background:var(--card); border:1px solid var(--stroke); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .section-head{display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:18px}
+    .section-head h2{font-size:clamp(22px, 3.2vw, 32px); margin:0}
+    .muted{color:var(--muted)}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--stroke); border-radius:999px}
+    table{width:100%; border-collapse:collapse}
+    th, td{padding:14px; text-align:left}
+    th{background:var(--paper); border-bottom:2px solid var(--stroke)}
+    tr{border-bottom:1px solid var(--stroke)}
+    tr:hover{background:color-mix(in oklab, var(--brand) 10%, transparent)}
+    footer{border-top:1px solid var(--stroke); padding:32px 0 48px}
+    .footer-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:18px}
+    @media (max-width:800px){ .footer-grid{grid-template-columns:1fr} }
+    .social{display:flex; gap:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="logo" aria-hidden="true">S</span>
+        <span>STEAL COMPANY</span>
+      </a>
+      <nav class="menu">
+        <a href="#">회사소개</a>
+        <a href="#">서비스</a>
+        <a href="/freeboard">게시판</a>
+        <a href="#">소식</a>
+        <a href="/login" class="cta"><strong>로그인</strong></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="board" aria-labelledby="board-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="board-title">자유게시판</h2>
+          <a class="pill" href="#" aria-label="글쓰기">✎ 글쓰기</a>
+        </div>
+
+        <div class="card" style="padding:0; overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>날짜</th>
+                <th>조회수</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><a href="#" onclick="alert('관리자만 접근 가능합니다.')">[비밀글] 관리자 계정 정보</a></td>
+                <td>관리자</td>
+                <td>2025-09-01</td>
+                <td>120</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><a href="/freeboard/1">안녕하세요~</a></td>
+                <td>홍길동</td>
+                <td>2025-09-02</td>
+                <td>45</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><a href="/freeboard/2">프로젝트 공유합니다</a></td>
+                <td>김영희</td>
+                <td>2025-09-02</td>
+                <td>30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:20px; text-align:center">
+          <a class="pill" href="#">이전</a>
+          <span class="muted">1</span>
+          <a class="pill" href="#">2</a>
+          <a class="pill" href="#">3</a>
+          <a class="pill" href="#">다음</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <span class="logo" aria-hidden="true">S</span>
+          <span>STEAL COMPANY</span>
+        </div>
+        <p class="muted">© <span id="year"></span> STEAL COMPANY. All rights reserved.</p>
+        <div class="social">
+          <a class="pill" href="#">in</a>
+          <a class="pill" href="#">GH</a>
+          <a class="pill" href="#">YT</a>
+        </div>
+      </div>
+      <div>
+        <p class="muted">사업자등록번호: 000-00-00000 | 통신판매업 신고: 제0000-서울강남-00000</p>
+        <p class="muted"><a href="#">개인정보처리방침</a> · <a href="#">이용약관</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
