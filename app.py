@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template,send_file, make_response,request, redirect
 
 app = Flask(__name__)
@@ -44,4 +45,7 @@ def login_proc():
 def admin():
     return send_file("stealcompany_dashboard.html")
 
-app.run(host="0.0.0.0", port=5555)
+
+port = int(os.environ.get("PORT", 5555))
+
+app.run(host="0.0.0.0", port=port)
